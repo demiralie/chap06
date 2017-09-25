@@ -1,14 +1,11 @@
-package org.zerock.persistence;
+package com.example.persistence;
 
-import java.util.List;
 
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.CrudRepository;
-import org.zerock.domain.QWebBoard;
-import org.zerock.domain.WebBoard;
 
+import com.example.domain.QWebBoard;
+import com.example.domain.WebBoard;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Predicate;
 

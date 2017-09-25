@@ -1,4 +1,4 @@
-package org.zerock.vo;
+package com.example.vo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,9 +6,11 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.java.Log;
+
 
 @Getter
 @ToString(exclude="pageList")
@@ -47,6 +49,8 @@ public class PageMaker<T> {
 		int tempEndNum = (int)(Math.ceil(this.currentPageNum/10.0)* 10);
 		
 		int startNum = tempEndNum -9; 
+		
+		
 		
 		Pageable startPage = this.currentPage;
 		
