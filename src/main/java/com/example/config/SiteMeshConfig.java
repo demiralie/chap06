@@ -34,10 +34,11 @@ public class SiteMeshConfig {
 				builder.addDecoratorPath("/city/*", "/WEB-INF/decorators/city.jsp");
 				builder.addDecoratorPath("/country/*", "/WEB-INF/decorators/country.jsp");
 				builder.addDecoratorPath("/ontime/*", "/WEB-INF/decorators/ontime.jsp");
+				builder.addDecoratorPath("/bootstrap/*", "/WEB-INF/decorators/bootstrap.jsp");
 			}
 		});
 
-		filter.setUrlPatterns(Arrays.asList("/board/*", "/dept/*", "/emp/*", "/city/*", "/country/*", "/ontime/*" ));
+		filter.setUrlPatterns(Arrays.asList("/board/*", "/dept/*", "/emp/*", "/city/*", "/country/*", "/ontime/*", "/bootstrap/*" ));
 		
 		return filter;
 	}

@@ -28,7 +28,21 @@
 </head>
 
 <body class="container">
-	<header class="page-header"> Header </header>
+	<header class="page-header">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">WebSiteName</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class=""><a href="#">Home</a></li>
+					<li><a href="/boards/list">Board Th</a></li>
+					<li><a href="/board/list">Board JSP</a></li>
+					<li><a href="#">Site3</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
 
 	<section class="panel panel-default">
 		<sitemesh:write property="body" />

@@ -10,11 +10,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.jpa.repository.config.JpaRepositoryConfigExtension;
 import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.domain.WebBoard;
 import com.example.persistence.WebBoardRepository;
+import com.example.persistence.WebBoardRepositoryTest;
 import com.example.vo.PageMaker;
 
 import lombok.extern.java.Log;
@@ -23,7 +25,7 @@ import lombok.extern.java.Log;
 @SpringBootTest
 @Log
 @Commit
-public class WebBoardRepositoryTests {
+public class WebBoardRepositoryTests extends JpaRepositoryConfigExtension {
 
 	@Autowired
 	WebBoardRepository repo;
@@ -31,7 +33,7 @@ public class WebBoardRepositoryTests {
 	@Test
 	public void insertBoardDummies() {
 
-		IntStream.range(0, 300).forEach(i -> {
+		IntStream.range(0, 600).forEach(i -> {
 
 			WebBoard board = new WebBoard();
 

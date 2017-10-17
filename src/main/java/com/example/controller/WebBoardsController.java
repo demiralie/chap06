@@ -13,8 +13,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.domain.WebBoard;
 import com.example.persistence.WebBoardRepository;
+import com.example.persistence.WebBoardRepositoryTest;
 import com.example.vo.PageMaker;
 import com.example.vo.PageVO;
+import com.querydsl.core.types.Predicate;
 
 import lombok.extern.java.Log;
 
@@ -115,23 +117,25 @@ public class WebBoardsController {
 	}
 	
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@GetMapping("/list")
 	public String list(@ModelAttribute("pageVO") PageVO vo, Model model){
 		
-		Pageable page = vo.makePageable(0, "bno");
+		Pageable pageable = vo.makePageable(0, "bno");
+		Predicate predicate = repo.makePredicate(vo.getType(), vo.getKeyword());
 		
-		Page<WebBoard> result = repo.findAll(
-				repo.makePredicate(vo.getType(), 
-						           vo.getKeyword()), page);
+//		Page<WebBoard> result = repo.findAll(
+//				repo.makePredicate(vo.getType(), 
+//						           vo.getKeyword()), page);
 		
-		log.info(""+ page);
+		Page<WebBoard> result = repo.findAll(predicate, pageable);
+		
+		log.info(""+ pageable);
 		log.info(""+result);
 		
 		log.info("TOTAL PAGE NUMBER: " + result.getTotalPages());
 		
 		
-		model.addAttribute("result", new PageMaker(result));
+		model.addAttribute("pageMaker", new PageMaker<WebBoard>(result));
 		
 		return "thymeleaf/boards/list";
 		
